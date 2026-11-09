@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+  <!-- [문제 1] 한글이 깨지지 않도록 문자 인코딩을 지정하는 속성 이름 -->
+  <meta ___="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- [문제 2] 브라우저 탭에 표시되는 문서 제목 태그 이름 -->
+  <___>달콤 부엌 쿠킹 클래스</___>
+  <!-- [문제 3] 외부 CSS 파일을 연결하는 태그 이름 -->
+  <___ rel="stylesheet" href="class.css">
+</head>
+<body>
+
+  <!-- [문제 4] 로고와 메뉴가 들어 있는 페이지 머리글 시맨틱 태그 -->
+  <___>
+    <h1>달콤 부엌</h1>
+    <!-- [문제 5] 사이트 메뉴(이동 링크 모음)를 감싸는 시맨틱 태그 -->
+    <___>
+      <ul>
+        <li><a href="#classes">클래스 소개</a></li>
+        <li><a href="#schedule">일정</a></li>
+        <li><a href="#apply">신청하기</a></li>
+      </ul>
+    </___>
+  </___>
+
+  <!-- [문제 6] 페이지의 핵심 내용 전체를 감싸는 시맨틱 태그 (페이지에 하나만 씁니다) -->
+  <___>
+
+    <section class="hero">
+      <h2>주말에 함께 요리해요</h2>
+      <p>처음이어도 괜찮아요. 소규모로 진행하는 <strong>원데이 쿠킹 클래스</strong>입니다.</p>
+      <!-- [문제 7] 이미지를 넣는 태그 이름
+           [문제 8] 이미지가 안 보일 때 대신 보여 줄 설명을 적는 속성 이름 -->
+      <___ src="class.svg" ___="김이 나는 주황색 냄비 그림">
+      <!-- [문제 9] 클릭했을 때 이동할 주소를 정하는 속성 이름 -->
+      <a ___="#apply" class="btn">지금 신청하기</a>
+    </section>
+
+    <!-- [문제 10] 메뉴의 '클래스 소개'를 누르면 이 영역으로 이동하도록
+         이동 목적지 이름을 정하는 속성 이름 (페이지 안에서 하나뿐인 이름) -->
+    <section ___="classes">
+      <h2>클래스 소개</h2>
+
+      <article class="card">
+        <h3>홈베이킹 기초</h3>
+        <p>버터 쿠키와 머핀을 만들어 포장까지 해 갑니다.</p>
+        <p class="price">35,000원</p>
+      </article>
+
+      <article class="card">
+        <h3>한식 반찬 만들기</h3>
+        <p>일주일 동안 먹을 기본 반찬 4가지를 만듭니다.</p>
+        <p class="price">40,000원</p>
+      </article>
+
+      <article class="card">
+        <h3>파스타 원데이</h3>
+        <p>생면 반죽부터 토마토 소스까지 직접 만듭니다.</p>
+        <p class="price">45,000원</p>
+      </article>
+    </section>
+
+    <section id="schedule">
+      <h2>11월 일정</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>날짜</th>
+            <th>클래스</th>
+            <th>시간</th>
+            <th>남은 자리</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>11월 14일 (토)</td>
+            <td>홈베이킹 기초</td>
+            <td>10:00 ~ 12:00</td>
+            <td>3명</td>
+          </tr>
+          <tr>
+            <td>11월 15일 (일)</td>
+            <td>한식 반찬 만들기</td>
+            <td>14:00 ~ 16:30</td>
+            <td>마감</td>
+          </tr>
+          <tr>
+            <td>11월 21일 (토)</td>
+            <td>파스타 원데이</td>
+            <td>11:00 ~ 13:30</td>
+            <td>5명</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>수업 안내</h2>
+      <h3>준비물</h3>
+      <ul>
+        <li>앞치마</li>
+        <li>머리끈</li>
+        <li>음식을 담아 갈 용기</li>
+      </ul>
+
+      <h3>진행 순서</h3>
+      <!-- [문제 11] 1, 2, 3 번호가 붙는 순서 있는 목록 태그 이름
+           (위 준비물 목록과 무엇이 다른지 생각해 보세요) -->
+      <___>
+        <li>재료와 도구 소개</li>
+        <li>강사 시연</li>
+        <li>직접 만들기</li>
+        <li>함께 시식하기</li>
+      </___>
+    </section>
+
+    <section id="apply">
+      <h2>클래스 신청</h2>
+      <form action="#">
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+
+        <!-- [문제 12] 위 '이름'처럼, 글자를 눌렀을 때 id="email" 입력칸이 선택되도록 연결하는 속성 이름 -->
+        <label ___="email">이메일</label>
+        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+
+        <label for="course">신청할 클래스</label>
+        <select id="course" name="course">
+          <option value="baking">홈베이킹 기초</option>
+          <option value="banchan">한식 반찬 만들기</option>
+          <option value="pasta">파스타 원데이</option>
+        </select>
+
+        <p>신청 인원</p>
+        <div>
+          <label><input type="radio" name="count" value="1"> 1명</label>
+          <label><input type="radio" name="count" value="2"> 2명</label>
+        </div>
+
+        <label for="memo">알레르기 또는 요청 사항</label>
+        <!-- [문제 13] 여러 줄의 글을 입력하는 칸의 태그 이름 -->
+        <___ id="memo" name="memo" placeholder="예: 견과류 알레르기가 있어요"></___>
+
+        <div>
+          <!-- [문제 14] 동의 여부를 체크하는 네모 상자가 되도록 입력칸 종류 -->
+          <label><input type="___" name="agree" required> 개인정보 수집에 동의합니다</label>
+        </div>
+
+        <button type="submit">신청하기</button>
+      </form>
+    </section>
+
+  </___>
+
+  <!-- [문제 15] 페이지 맨 아래 정보를 감싸는 시맨틱 태그 -->
+  <___>
+    <p>달콤 부엌 | 문의 <a href="mailto:hello@example.com">hello@example.com</a></p>
+    <p>&copy; 2026 달콤 부엌</p>
+  </___>
+
+</body>
+</html>

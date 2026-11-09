@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="아마빌레 아카데미 - 함께 연주하고 배우며 음악을 즐기는 공간">
+  <title>아마빌레 아카데미 | AMABILE ACADEMY</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
+
+    :root {
+      --ivory: #f5f0e6;
+      --paper: #fbf9f4;
+      --brown: #795438;
+      --deep-brown: #493526;
+      --amber: #d98b45;
+      --ink: #29251f;
+      --muted: #81776b;
+      --line: rgba(73, 53, 38, .16);
+      --serif: "Noto Serif KR", serif;
+      --sans: "DM Sans", "Noto Sans KR", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      word-break: keep-all;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; object-fit: cover; }
+    .wrap { width: min(1200px, calc(100% - 64px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      color: var(--brown); font-size: 11px; letter-spacing: .2em;
+      font-weight: 700; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--amber); }
+    .section-title {
+      margin: 18px 0 20px; font: 500 clamp(34px, 4.5vw, 58px)/1.25 var(--serif);
+      letter-spacing: -.055em;
+    }
+    .section-copy { color: var(--muted); font-size: 15px; line-height: 2; }
+    .button {
+      display: inline-flex; justify-content: center; align-items: center; gap: 20px;
+      min-height: 54px; padding: 0 25px; border: 1px solid var(--brown);
+      background: var(--brown); color: #fffaf2; font-size: 13px; font-weight: 600;
+      transition: .25s ease;
+    }
+    .button:hover { background: var(--amber); border-color: var(--amber); transform: translateY(-3px); }
+    .button.light { background: transparent; color: var(--deep-brown); }
+    .button.light:hover { color: white; }
+    .arrow { font-size: 18px; line-height: 1; }
+
+    /* HEADER */
+    .header {
+      position: sticky; top: 0; z-index: 20; background: rgba(251,249,244,.94);
+      border-bottom: 1px solid var(--line); backdrop-filter: blur(14px);
+    }
+    .header-inner {
+      min-height: 82px; display: flex; justify-content: space-between;
+      align-items: center; gap: 28px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .brand-mark {
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border: 1px solid var(--amber); border-radius: 50%;
+      color: var(--brown); font: 600 17px var(--serif);
+    }
+    .brand-name { font: 600 16px var(--serif); letter-spacing: .04em; }
+    .brand-sub { display: block; margin-top: 3px; color: var(--muted); font: 9px var(--sans); letter-spacing: .22em; }
+    .nav { display: flex; align-items: center; gap: clamp(15px, 2.3vw, 32px); }
+    .nav a { font-size: 12px; color: #65584b; transition: color .2s; white-space: nowrap; }
+    .nav a:hover { color: var(--amber); }
+    .header-cta { min-height: 42px; padding: 0 17px; font-size: 11px; white-space: nowrap; }
+
+    /* HERO */
+    .hero {
+      position: relative; min-height: min(760px, calc(100vh - 82px)); display: flex;
+      align-items: center; overflow: hidden; color: #fffaf2; background: #493526;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(31,24,18,.78) 0%, rgba(31,24,18,.52) 48%, rgba(31,24,18,.08) 100%),
+        url("https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=2200&q=88") center 48%/cover;
+      transform: scale(1.025); animation: heroZoom 12s ease-out both;
+    }
+    @keyframes heroZoom { from { transform: scale(1.1); } to { transform: scale(1.025); } }
+    .hero-content { position: relative; z-index: 1; width: min(1200px, calc(100% - 64px)); margin: 0 auto; padding: 120px 0; }
+    .hero-kicker { color: #e7b77f; font-size: 11px; letter-spacing: .28em; font-weight: 600; }
+    .hero h1 {
+      max-width: 760px; margin: 28px 0 24px; font: 500 clamp(42px, 7vw, 88px)/1.22 var(--serif);
+      letter-spacing: -.065em;
+    }
+    .hero h1 em { color: #e9b77e; font-style: normal; }
+    .hero-desc { max-width: 480px; color: rgba(255,250,242,.8); font-size: 15px; line-height: 2; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+    .hero .button { border-color: #e1a565; background: #d98b45; }
+    .hero .button.light { border-color: rgba(255,255,255,.65); color: white; background: transparent; }
+    .hero .button.light:hover { background: white; color: var(--deep-brown); }
+    .hero-note { position: absolute; right: 0; bottom: 38px; color: rgba(255,255,255,.65); font-size: 10px; letter-spacing: .2em; }
+
+    /* INTRO */
+    .intro { padding: 130px 0 120px; background: var(--ivory); }
+    .intro-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 10%; align-items: center; }
+    .intro-image { position: relative; min-height: 500px; }
+    .intro-image img { height: 500px; }
+    .image-caption {
+      position: absolute; right: -28px; bottom: 28px; padding: 22px 26px;
+      background: var(--paper); color: var(--brown); font: 14px/1.8 var(--serif);
+      box-shadow: 0 12px 40px rgba(40,25,12,.1);
+    }
+    .intro-text .section-copy { max-width: 470px; }
+    .intro-signature { margin-top: 34px; color: var(--brown); font: italic 22px var(--serif); }
+
+    /* VALUE STRIP */
+    .values { padding: 30px 0; background: var(--deep-brown); color: var(--ivory); }
+    .values-inner { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .value { padding: 20px 32px; border-right: 1px solid rgba(255,255,255,.18); }
+    .value:last-child { border: 0; }
+    .value strong { display: block; margin-bottom: 8px; color: #e9b77e; font: 500 22px var(--serif); }
+    .value span { color: rgba(255,250,242,.68); font-size: 12px; }
+
+    /* ENSEMBLE */
+    .ensemble { padding: 130px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 48px; }
+    .section-head .section-copy { max-width: 370px; }
+    .ensemble-grid { display: grid; grid-template-columns: 1.15fr .85fr .85fr; gap: 18px; align-items: start; }
+    .ensemble-card { position: relative; overflow: hidden; background: var(--ivory); }
+    .ensemble-card:nth-child(2) { margin-top: 65px; }
+    .ensemble-card:nth-child(3) { margin-top: 125px; }
+    .ensemble-card img { height: 330px; transition: transform .6s; }
+    .ensemble-card:hover img { transform: scale(1.045); }
+    .ensemble-card:first-child img { height: 395px; }
+    .card-info { padding: 22px 22px 26px; }
+    .card-index { color: var(--amber); font-size: 10px; letter-spacing: .15em; }
+    .card-info h3 { margin: 9px 0; font: 500 23px var(--serif); }
+    .card-info p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+
+    /* LESSON */
+    .lesson { padding: 120px 0; background: #eee5d7; }
+    .lesson-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9%; align-items: center; }
+    .lesson-photo { height: 540px; }
+    .lesson-photo img { height: 100%; }
+    .lesson-list { margin-top: 35px; border-top: 1px solid var(--line); }
+    .lesson-item { display: flex; justify-content: space-between; gap: 20px; padding: 19px 0; border-bottom: 1px solid var(--line); }
+    .lesson-item strong { font: 500 17px var(--serif); }
+    .lesson-item span { color: var(--muted); font-size: 12px; }
+
+    /* QUOTE */
+    .quote {
+      padding: 110px 24px; text-align: center; color: var(--ivory);
+      background: linear-gradient(rgba(49,36,25,.78), rgba(49,36,25,.78)),
+      url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1800&q=85") center/cover;
+    }
+    .quote small { color: #e9b77e; letter-spacing: .25em; font-size: 10px; }
+    .quote blockquote { max-width: 850px; margin: 28px auto 20px; font: 500 clamp(27px, 4vw, 46px)/1.55 var(--serif); letter-spacing: -.04em; }
+    .quote p { color: rgba(255,250,242,.7); font-size: 13px; }
+
+    /* LOCATION / CONTACT */
+    .contact { padding: 125px 0; background: var(--ivory); }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 9%; align-items: center; }
+    .contact-photo { height: 470px; }
+    .contact-photo img { height: 100%; }
+    .info-list { margin: 35px 0; border-top: 1px solid var(--line); }
+    .info-row { display: grid; grid-template-columns: 90px 1fr; gap: 20px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+    .info-row b { color: var(--brown); font-size: 12px; }
+    .info-row span { color: #665b50; font-size: 13px; line-height: 1.8; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    /* FOOTER */
+    footer { padding: 40px 0; background: #34271e; color: var(--ivory); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: end; gap: 30px; }
+    .footer-brand { font: 500 20px var(--serif); letter-spacing: .04em; }
+    .footer-sub { margin-top: 8px; color: rgba(255,250,242,.5); font-size: 10px; letter-spacing: .18em; }
+    .footer-right { color: rgba(255,250,242,.55); font-size: 11px; line-height: 1.9; text-align: right; }
+
+    @media (max-width: 980px) {
+      .header-inner { flex-wrap: wrap; padding: 15px 0; }
+      .nav { order: 3; width: 100%; justify-content: space-between; overflow-x: auto; padding: 8px 0 2px; }
+      .header-cta { margin-left: auto; }
+      .intro-grid, .lesson-grid, .contact-grid { gap: 45px; }
+      .ensemble-grid { grid-template-columns: repeat(2, 1fr); }
+      .ensemble-card:nth-child(2), .ensemble-card:nth-child(3) { margin-top: 0; }
+      .ensemble-card:first-child img, .ensemble-card img { height: 300px; }
+    }
+    @media (max-width: 680px) {
+      .wrap, .hero-content { width: min(100% - 40px, 540px); }
+      .header-inner { min-height: auto; gap: 10px; }
+      .brand-name { font-size: 14px; }
+      .header-cta { min-height: 38px; padding: 0 12px; }
+      .nav { gap: 22px; justify-content: flex-start; }
+      .nav a { font-size: 11px; }
+      .hero { min-height: 690px; }
+      .hero-content { padding: 90px 0; }
+      .hero h1 { font-size: clamp(42px, 12vw, 65px); }
+      .hero-desc { font-size: 13px; }
+      .hero-note { right: 0; bottom: 24px; font-size: 8px; }
+      .intro, .ensemble, .lesson, .contact { padding: 85px 0; }
+      .intro-grid, .lesson-grid, .contact-grid { grid-template-columns: 1fr; }
+      .intro-image { min-height: 350px; }
+      .intro-image img { height: 350px; }
+      .image-caption { right: -5px; bottom: 15px; padding: 15px 18px; font-size: 12px; }
+      .values-inner { grid-template-columns: 1fr; }
+      .value { padding: 18px 4px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.18); }
+      .value:last-child { border-bottom: 0; }
+      .section-head { display: block; }
+      .section-head .section-copy { margin-top: 18px; }
+      .ensemble-grid { grid-template-columns: 1fr; gap: 20px; }
+      .ensemble-card:first-child img, .ensemble-card img { height: 280px; }
+      .lesson-photo { height: 350px; }
+      .quote { padding: 85px 22px; }
+      .contact-photo { height: 330px; }
+      .footer-inner { display: block; }
+      .footer-right { margin-top: 25px; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="home">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home" aria-label="아마빌레 아카데미 홈">
+        <span class="brand-mark">A</span>
+        <span><span class="brand-name">아마빌레 아카데미</span><span class="brand-sub">AMABILE ACADEMY</span></span>
+      </a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="#home">홈</a>
+        <a href="#about">단체소개</a>
+        <a href="#ensemble">앙상블소개</a>
+        <a href="#lesson">레슨소개</a>
+        <a href="#location">오시는 길</a>
+        <a href="#contact">예약,문의</a>
+      </nav>
+      <a class="button header-cta" href="#contact">문의하기 <span class="arrow">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-kicker">AMABILE ACADEMY · MUSIC COMMUNITY</div>
+        <h1>음악을 사랑하는 마음,<br><em>함께 연주하는 즐거움.</em></h1>
+        <p class="hero-desc">혼자 연주하던 일상에서 한 걸음 더 나아가 보세요.<br>아마빌레 아카데미에서 배우고, 함께 연주하고,<br>음악으로 연결되는 시간을 만들어갑니다.</p>
+        <div class="hero-actions">
+          <a class="button" href="#ensemble">우리의 활동 보기 <span class="arrow">↗</span></a>
+          <a class="button light" href="#contact">문의하기 <span class="arrow">↗</span></a>
+        </div>
+        <div class="hero-note">PLAY TOGETHER · GROW TOGETHER</div>
+      </div>
+    </section>
+
+    <section class="intro" id="about">
+      <div class="wrap intro-grid">
+        <div class="intro-image">
+          <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=1100&q=85" alt="햇살이 비치는 피아노와 음악 공간">
+          <div class="image-caption">Music is better<br>when shared.</div>
+        </div>
+        <div class="intro-text">
+          <span class="eyebrow">About Amabile</span>
+          <h2 class="section-title">좋아하는 음악을<br>함께 나누는 공간</h2>
+          <p class="section-copy">취미로 악기를 연주하는 사람이라면 누구나 더 깊은 음악의 즐거움을 경험할 수 있습니다. 아마빌레 아카데미는 피아노, 목관악기, 현악기를 사랑하는 사람들이 모여 배우고 교류하며 함께 연주하는 음악 커뮤니티를 지향합니다.</p>
+          <p class="section-copy">나만의 속도로 배우는 개인 레슨부터 서로의 소리를 맞춰가는 앙상블까지. 음악을 향한 마음이 새로운 경험으로 이어지도록 함께합니다.</p>
+          <div class="intro-signature">Amabile, with love for music.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="values">
+      <div class="wrap values-inner">
+        <div class="value"><strong>Learn</strong><span>나에게 맞는 속도로 배우는 음악</span></div>
+        <div class="value"><strong>Play</strong><span>서로의 소리를 맞추며 함께하는 연주</span></div>
+        <div class="value"><strong>Connect</strong><span>음악을 통해 이어지는 따뜻한 만남</span></div>
+      </div>
+    </section>
+
+    <section class="ensemble" id="ensemble">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Together in harmony</span>
+            <h2 class="section-title">함께할 때 더 아름다운 음악</h2>
+          </div>
+          <p class="section-copy">각자의 악기와 개성이 하나의 선율로 이어지는 순간. 아마빌레에서 다양한 앙상블의 즐거움을 만나보세요.</p>
+        </div>
+        <div class="ensemble-grid">
+          <article class="ensemble-card">
+            <img src="https://images.unsplash.com/photo-1514119412350-e174d90d280e?auto=format&fit=crop&w=1000&q=85" alt="피아노 연주">
+            <div class="card-info"><span class="card-index">01 / PIANO</span><h3>피아노 앙상블</h3><p>두 대의 피아노와 다양한 편성으로 함께 만들어가는 풍성한 하모니.</p></div>
+          </article>
+          <article class="ensemble-card">
+            <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85" alt="목관악기 연주 분위기">
+            <div class="card-info"><span class="card-index">02 / WOODWIND</span><h3>목관 앙상블</h3><p>클라리넷을 비롯한 목관악기의 다채로운 음색을 함께 경험합니다.</p></div>
+          </article>
+          <article class="ensemble-card">
+            <img src="https://images.unsplash.com/photo-1519683109079-d5f539e1542f?auto=format&fit=crop&w=900&q=85" alt="현악기 연주">
+            <div class="card-info"><span class="card-index">03 / STRINGS</span><h3>현악 앙상블</h3><p>현악기의 섬세한 선율이 만나 완성하는 작은 실내악의 감동.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson" id="lesson">
+      <div class="wrap lesson-grid">
+        <div class="lesson-photo">
+          <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=1100&q=85" alt="악보와 악기가 놓인 음악 연습 공간">
+        </div>
+        <div>
+          <span class="eyebrow">Private Lesson</span>
+          <h2 class="section-title">나의 음악을<br>조금 더 깊게</h2>
+          <p class="section-copy">기초부터 차근차근, 또는 더 나은 연주를 위한 섬세한 지도까지. 각자의 목표와 수준에 맞춘 개인 레슨으로 음악의 즐거움을 넓혀보세요.</p>
+          <div class="lesson-list">
+            <div class="lesson-item"><strong>피아노</strong><span>기초 · 취미 · 연주 지도</span></div>
+            <div class="lesson-item"><strong>목관악기</strong><span>기초 · 테크닉 · 앙상블 준비</span></div>
+            <div class="lesson-item"><strong>현악기</strong><span>기초 · 자세 · 표현력 향상</span></div>
+          </div>
+          <a class="button" href="#contact">레슨 문의하기 <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote">
+      <small>THE JOY OF MAKING MUSIC</small>
+      <blockquote>“음악은 혼자 완성하는 것이 아니라,<br>함께 나누며 더 아름다워집니다.”</blockquote>
+      <p>당신의 음악이 누군가의 선율과 만나는 곳, 아마빌레 아카데미</p>
+    </section>
+
+    <section class="contact" id="location">
+      <div class="wrap contact-grid">
+        <div>
+          <span class="eyebrow">Visit Amabile</span>
+          <h2 class="section-title">음악이 시작되는 곳,<br>아마빌레 아카데미</h2>
+          <p class="section-copy">아마빌레 아카데미에서 새로운 음악의 경험을 시작해 보세요. 방문 전 문의해 주시면 더욱 편안하게 안내받으실 수 있습니다.</p>
+          <div class="info-list">
+            <div class="info-row"><b>ADDRESS</b><span>대구광역시 북구 조야로14길 17</span></div>
+            <div class="info-row"><b>HOURS</b><span>월요일 – 금요일<br>13:00 – 21:00</span></div>
+          </div>
+          <div class="contact-actions">
+            <a class="button" href="https://map.naver.com/v5/search/대구%20북구%20조야로14길%2017" target="_blank" rel="noopener">길찾기 <span class="arrow">↗</span></a>
+            <a class="button light" href="#contact">문의하기 <span class="arrow">↗</span></a>
+          </div>
+        </div>
+        <div class="contact-photo">
+          <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1100&q=85" alt="클래식 음악 공연장 내부">
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" style="padding-top:0">
+      <div class="wrap" style="text-align:center; padding:65px 30px; background:#eee5d7">
+        <span class="eyebrow">Start your music journey</span>
+        <h2 class="section-title">우리와 함께 음악을 시작해 볼까요?</h2>
+        <p class="section-copy" style="max-width:560px; margin:0 auto 28px">앙상블 활동과 개인 레슨에 대해 궁금한 점이 있다면 아마빌레 아카데미에 문의해 주세요.</p>
+        <!-- 실제 문의 페이지 또는 카카오톡 채널 주소가 정해지면 아래 링크를 교체하세요. -->
+        <a class="button" href="mailto:">문의하기 <span class="arrow">↗</span></a>
+        <p style="margin:14px 0 0; color:#81776b; font-size:11px">※ 실제 문의 연결을 위해 운영 중인 이메일 또는 문의 페이지 주소를 입력해 주세요.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>
+        <div class="footer-brand">아마빌레 아카데미</div>
+        <div class="footer-sub">AMABILE ACADEMY · MUSIC COMMUNITY</div>
+      </div>
+      <div class="footer-right">대구광역시 북구 조야로14길 17<br>운영시간 : 월–금 13:00–21:00<br>© AMABILE ACADEMY. ALL RIGHTS RESERVED.</div>
+    </div>
+  </footer>
+</body>
+</html>
