@@ -1,0 +1,76 @@
+
+
+body {
+  margin: 0;
+  color: #333;
+  background-color: #faf7f2;
+}
+
+/* [문제 1] id="header"인 요소를 고르는 선택자 기호 */
+#header {
+  text-align: center;
+  color: #fff;
+  background-color: #2f4858;
+  /* [문제 2] 머리글 안쪽 여백 (위아래 32px, 좌우 16px) */
+  padding: 32px 16px;
+}
+
+h1 {
+  /* [문제 3] 제목의 바깥 여백 (위 0, 좌우 0, 아래 8px) */
+  margin: 0 0 8px;
+}
+
+/* [문제 4] class="box"인 요소를 고르는 선택자 기호 */
+.box {
+  /* [문제 5] 상자의 가로 크기 */
+  width: 480px;
+  /* [문제 6] 위아래 바깥 여백 24px, 좌우는 auto로 가운데 정렬 */
+  margin: 24px auto;
+  padding: 24px;
+  background-color: #fff;
+  /* [문제 7] 상자 네 방향 모두에 선 긋기 (굵기 스타일 색) */
+  border: 1px solid #e5ddd0;
+  /* [문제 8] 상자 모서리를 둥글게 */
+  border-radius: 12px;
+}
+
+.box-title {
+  margin-top: 0;
+  /* [문제 9] 제목 글자와 밑줄 사이 간격 (아래쪽 안쪽 여백만) */
+  padding-bottom: 8px;
+  /* [문제 10] 제목 아래쪽에만 선 긋기 */
+  border-bottom: 2px solid #c8763c;
+}
+
+.cover {
+  /* [문제 11] 책 표지 가로 크기 / [문제 12] 책 표지 세로 크기 */
+  width: 100px; height: 140px;
+}
+
+.notice {
+  padding-left: 12px;
+  /* [문제 13] 안내 문장 왼쪽에만 선 긋기 */
+  border-left: 4px solid #c8763c;
+}
+
+.btn {
+  width: 140px;
+  height: 44px;
+  /* [문제 14] 버튼 사이 간격 (오른쪽 바깥 여백만) */
+  margin-right: 8px;
+  border: 2px solid #c8763c;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.btn-gray {
+  /* [문제 15] '문의하기' 버튼의 선 색만 회색으로 바꾸기 */
+  border-color: #999;
+}
+
+#footer {
+  padding: 16px;
+  text-align: center;
+  color: #ccc;
+  background-color: #2f4858;
+}

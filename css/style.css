@@ -1,0 +1,38 @@
+/* 1.css 태그 선택자 */
+
+body {
+    color: black;
+    background-color: #f2f4f6;
+    margin: 0;
+}
+
+header {
+    background-color: #3b6ef5;
+    text-align: center;
+    padding: 24px;
+}
+
+/* 2.id 선택자 */
+
+#site-title {
+    color: white;
+    font-size: 25px;
+    }
+
+    /* 3. 클래스 선택자 */
+
+    .card {
+        width: 360px;
+        border: 1px solid gray;
+        border-radius: 12px;
+        margin: 24px auto;
+        padding: 24px;
+    }
+
+    .btn {
+        background-color: white;
+        height: 40px;
+    }
+    .btn-main {
+        background-color: #3b6ef5;
+    }
